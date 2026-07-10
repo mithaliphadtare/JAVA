@@ -1,0 +1,21 @@
+
+import java.util.Scanner;
+class Abc{
+public static void main(String[] args){
+    Scanner sc= new Scanner (System.in);
+    System.out.println("Enter  B :");
+    //char a=sc.next().charAt(0);
+    int b=sc.nextInt();
+    if(b>0){
+    System.out.println("Positive "+b);
+    }
+    else if(b<0){
+        System.out.println("Negative "+b);
+    }
+    else{
+        System.out.println("Zero "+b);
+    }
+    
+    
+}
+}
