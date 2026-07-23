@@ -1,0 +1,46 @@
+package abc;
+import java.util.*;
+public class Student {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the name");
+		String name=sc.next();
+		System.out.println("Enter the Roll no.");
+		int roll=sc.nextInt();
+		System.out.println("Enter the No. of Subjects:");
+		int num=sc.nextInt();
+		int[] marks=new int[num];
+		int sum=0;
+		for(int i=0;i<num;i++) {
+			System.out.println("Enter the Marks of Subjects "+(i+1));
+			marks[i]=sc.nextInt();
+			sum=sum+marks[i];
+		}
+		System.out.println("Name:"+name);
+		System.out.println("Roll: "+roll);
+		for(int i=0;i<num;i++) {
+			System.out.println("marks of Subjects "+i+" ="+marks[i]);
+		}
+		System.out.println("Sum of the Marks of Subjects "+sum);
+		float per=sum/num;
+		System.out.println("Percentage Marks of Subjects "+per+"%");
+		if(per>=85) {
+			System.out.println(" Grade A ");
+		}
+		else if(per>=70) {
+			System.out.println("Grade B ");
+		}
+		else if(per>=50) {
+			System.out.println(" Grade C");
+		}
+		else {
+			System.out.println("fail");
+		}
+		
+		
+		
+
+	}
+
+}
