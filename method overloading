@@ -1,0 +1,19 @@
+package abc;
+class ABC{
+	void Area(int n) {
+		System.out.println("Area of Square is:"+(n*n)+" units");
+	}
+	void Area(int n,int m) {
+		System.out.println("Area of Rectangle is:"+(m*n)+" units");
+	}
+}
+public class Compile {
+
+	public static void main(String[] args) {
+		ABC obj= new ABC();
+		obj.Area(5);
+		obj.Area(8,10);
+
+	}
+
+}
