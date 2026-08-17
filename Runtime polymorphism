@@ -1,0 +1,27 @@
+package abc;
+class Animal{
+	void print() {
+		System.out.println("Animal ");
+	}
+}
+class dog extends Animal{
+	void print() {
+		System.out.println("Dog ");
+	}
+}
+class cat extends Animal{
+	void print() {
+		System.out.println("Cat ");
+	}
+}
+
+public class Runtime {
+	public static void main(String[] args) {
+		Animal aobj= new Animal();
+		aobj.print();
+		aobj= new dog();
+		aobj.print();
+		aobj= new cat();
+		aobj.print();
+	}
+}
