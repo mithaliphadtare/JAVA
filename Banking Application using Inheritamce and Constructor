@@ -1,0 +1,90 @@
+package abc;
+
+class Account{
+ protected String accountNumber;
+ protected double balance;
+
+
+ public Account(String accountNumber, double initialBalance) {
+     this.accountNumber = accountNumber;
+     this.balance = initialBalance;
+ }
+
+
+ public void deposit(double amount) {
+     if (amount > 0) {
+         balance += amount;
+         System.out.println("Deposited: Ru." + amount);
+     } else {
+         System.out.println("Invalid deposit amount.");
+     }
+ }
+
+
+ public void withdraw(double amount) {
+     if (amount > 0 && amount <= balance) {
+         balance -= amount;
+         System.out.println("Withdrawn: Ru." + amount);
+     } else {
+         System.out.println("Insufficient balance or invalid amount.");
+     }
+ }
+
+ public void checkBalance() {
+     System.out.println("Account Number: " + accountNumber + " | Balance: Ru." + balance);
+ }
+}
+
+
+class SavingsAccount extends Account {
+ private double interestRate;
+
+ public SavingsAccount(String accountNumber, double initialBalance, double interestRate) {
+     super(accountNumber, initialBalance);
+     this.interestRate = interestRate;
+ }
+
+ public void addInterest() {
+     double interest = balance * (interestRate / 100);
+     deposit(interest);
+     System.out.println("Interest added: Ru." + interest);
+ }
+}
+
+
+class CurrentAccount extends Account {
+ private double overdraftLimit;
+
+ public CurrentAccount(String accountNumber, double initialBalance, double overdraftLimit) {
+     super(accountNumber, initialBalance);
+     this.overdraftLimit = overdraftLimit;
+ }
+
+
+ public void withdraw(double amount) {
+     if (amount > 0 && (balance + overdraftLimit) >= amount) {
+         balance -= amount;
+         System.out.println("Withdrawn from Current Account (with overdraft): Ru." + amount);
+     } else {
+         System.out.println("Transaction failed. Exceeds overdraft limit.");
+     }
+ }
+}
+
+
+public class Assignment6Order{
+ public static void main(String[] args) {
+     System.out.println("--- Savings Account ---");
+     SavingsAccount savings = new SavingsAccount("Mithali", 10000, 4.0);
+     savings.checkBalance();
+     savings.deposit(5000.0);
+     savings.withdraw(1000.0);
+     savings.checkBalance();
+
+     System.out.println("\n--- Current Account ---");
+     CurrentAccount current = new CurrentAccount("Mithali", 10000, 300.0);
+     current.checkBalance();
+     current.withdraw(600.0);
+     current.checkBalance();
+ }
+}
